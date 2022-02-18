@@ -239,7 +239,7 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
     margin-top: 0px;
     margin-bottom: 60px;
     text-align: left;
-    line-height:80px;
+    line-height:120px;
     list-style: none;
     animation-name: change;
     animation-duration: 10s;
