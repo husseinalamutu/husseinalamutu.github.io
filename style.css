@@ -217,6 +217,7 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
     font-size: 30px;
     line-height: 50px;
     color: #FFCB04;
+  bottom:73%;
 }
 .content .container {
     font-weight: 600;
@@ -359,6 +360,7 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
 
 section {
     position: relative;
+  padding: 25%;
 }
 
 .status {
