@@ -11,8 +11,8 @@ html {
 
 
 body {
-                margin: 10;
-                padding: 10;
+                margin: 10px;
+                padding: 10px;
                 background-color: #fff;*/
                 color: #444452;
                 /*font-family: Apercu,Source Sans Pro,Helvetica,Arial,sans-serif;*/
@@ -217,7 +217,6 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
     font-size: 30px;
     line-height: 50px;
     color: #FFCB04;
-  bottom:73%;
 }
 .content .container {
     font-weight: 600;
@@ -264,7 +263,9 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
     margin-bottom: 10px;
 }
 
-
+.alamz{
+    margin-top: 10px;
+}
 .intro {
         padding: 80px 100px;
         height: 75vh;
@@ -360,8 +361,8 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
 
 section {
     position: relative;
-  padding: 25%;
 }
+
 
 .status {
     display: -webkit-box;
@@ -430,6 +431,7 @@ body .section_title, html .section_title {
     flex-shrink: 0;
     width: 200px;
     margin-right: 70px;
+  margin-top: 10px;
     color: #007bff;
     text-transform: uppercase;
     text-align: right;
