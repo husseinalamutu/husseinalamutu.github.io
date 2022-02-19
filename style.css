@@ -1,6 +1,18 @@
-body, html {
+html {
                 margin: 0;
                 padding: 0;
+                background-color: #fff;*/
+                color: #444452;
+                /*font-family: Apercu,Source Sans Pro,Helvetica,Arial,sans-serif;*/
+                line-height: 1.5;
+                scroll-behavior: smooth;
+                font-family: 'Share Tech Mono', monospace;
+            }
+
+
+body {
+                margin: 10;
+                padding: 10;
                 background-color: #fff;*/
                 color: #444452;
                 /*font-family: Apercu,Source Sans Pro,Helvetica,Arial,sans-serif;*/
