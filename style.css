@@ -234,16 +234,16 @@ body.night .switch-wrapper .moon, html.night .switch-wrapper .moon {
     animation-iteration-count: infinite;
 }
 
-/* .list {
-    margin-top: 0px;
+.list {
+    margin-top: 30px;
     margin-bottom: 60px;
     text-align: left;
     line-height:60px;
     list-style: none;
-    animation-name: change;
+/*     animation-name: change;
     animation-duration: 10s;
-    animation-iteration-count: infinite;
-} */
+    animation-iteration-count: infinite; */
+}
 
 .item {
     line-height: 40px;
