@@ -1,29 +1,574 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Home</title>
-	<meta charset="UTF-8">
-	<!-- Font Awesome CDN for Icons -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hussein Alamutu – Technical Product Manager</title>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #2563eb;
+      border: 1.5px solid #2563eb;
+    }
+
+    .btn-outline:hover {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+      transform: scale(1.02);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+      border-bottom: 4px solid #2563eb;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #475569;
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      background-color: #e2e8f0;
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      font-size: 1.2rem;
+      background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    }
+
+    .hero-image i {
+      font-size: 4rem;
+      color: #2563eb;
+      margin-bottom: 16px;
+    }
+
+    /* Section headings */
+    .section-heading {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    .section-heading:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #2563eb;
+      margin-top: 12px;
+    }
+
+    /* Experience cards */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .exp-card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border: 1px solid #e9eef2;
+      transition: box-shadow 0.2s;
+    }
+
+    .exp-card:hover {
+      box-shadow: 0 20px 30px -10px rgba(37,99,235,0.1);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .exp-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .exp-date {
+      color: #64748b;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .exp-desc {
+      margin-top: 16px;
+      list-style-type: none;
+    }
+
+    .exp-desc li {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .exp-desc li i {
+      color: #2563eb;
+      font-size: 1rem;
+      margin-top: 4px;
+      min-width: 20px;
+    }
+
+    /* Case study */
+    .case-study {
+      background-color: white;
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid #e9eef2;
+      margin: 40px 0;
+    }
+
+    .case-study h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+
+    .case-study h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2563eb;
+      margin: 24px 0 8px;
+    }
+
+    .case-study p {
+      margin-bottom: 16px;
+      color: #334155;
+    }
+
+    .case-study ul {
+      list-style: none;
+    }
+
+    .case-study li {
+      margin-bottom: 12px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .case-study li i {
+      color: #2563eb;
+    }
+
+    .highlight {
+      background-color: #f0f7ff;
+      padding: 20px;
+      border-radius: 16px;
+      border-left: 4px solid #2563eb;
+      margin: 24px 0;
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .skill-item {
+      background-color: white;
+      border: 1px solid #e9eef2;
+      padding: 12px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      text-align: center;
+      color: #1e293b;
+      transition: all 0.2s;
+    }
+
+    .skill-item:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    /* Services for clients */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 24px;
+      padding: 32px 24px;
+      border: 1px solid #e9eef2;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 20px 30px -10px rgba(37,99,235,0.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: #2563eb;
+      margin-bottom: 20px;
+    }
+
+    .service-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* Contact & footer */
+    .contact-section {
+      background-color: white;
+      border-radius: 32px;
+      padding: 48px;
+      margin: 60px 0;
+      border: 1px solid #e9eef2;
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .contact-link i {
+      font-size: 1.4rem;
+      color: #2563eb;
+    }
+
+    .contact-link:hover {
+      color: #2563eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #64748b;
+      border-top: 1px solid #e9eef2;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none; /* For simplicity, could add mobile menu but fine */
+      }
+      .section-heading:after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-		<div class="container">
-        <div class="text-container">
-			<h1>Hello! <span class="wavingemoji"> &#128075; </span></h1>
-			<h2 class="name">I'm <span class="myname"> HUSSEIN ALAMUTU </span>, a <span class="leftbracket">[</span> <span class="mytitle">Product Manager </span> <span class="rightbracket">]</span></h2>
-			<h3 class="description">I have over 4 years experience in delivering impactful software products. 👨‍💻 With experience that cuts across digital marketing, cloud platforms, devops and software development, I bring technical expertise and a customer-focused approach to building and scaling solutions that matter. I thrive on bridging the gap between vision and execution, ensuring that every product I work on delivers real value.</h3>
-			<!-- Social Media Links -->
-			<div class="social-media">
-                <a href="https://www.linkedin.com/in/hussein-alamutu" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/husseinalamz" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://www.twitter.com/husseinalamz" target="_blank"><i class="fab fa-twitter"></i></a>
-				<a href="https://www.github.com/husseinalamutu" target="_blank"><i class="fab fa-github"></i></a>
-			</div>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Hussein Alamutu</div>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#case-study">Case Study</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="btn" style="padding: 8px 20px;">Let's talk</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <h1>I help teams <span>deliver platform products</span> that engineers love.</h1>
+          <p>Technical Product Manager with a background in software engineering. I bridge execution and product goals to build reliable, scalable platforms.</p>
+          <div class="hero-buttons">
+            <a href="#case-study" class="btn">See my work</a>
+            <a href="#contact" class="btn btn-outline">Hire me</a>
+          </div>
         </div>
-		<div class="image-container">
-            <img src="images/HusseinAlamutu.jpeg" alt="Your Image"> <!-- Replace with your image -->
+        <div class="hero-image">
+          <div>
+            <i class="fas fa-cubes"></i>
+            <p style="margin-top: 10px;">Platform · AI · P2P</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-heading">Selected Experience</h2>
+      <div class="timeline">
+        <!-- Turing -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">AI Product Manager</span>
+            <span class="exp-company">Turing</span>
+            <span class="exp-date">Apr 2024 – Present</span>
+          </div>
+          <ul class="exp-desc">
+            <li><i class="fas fa-check-circle"></i> Owned quality assurance for large language models (scale of GPT-5, NDA-bound), ensuring outputs met real-world production standards.</li>
+            <li><i class="fas fa-check-circle"></i> Built automated testing with Playwright to simulate user interactions, catching edge cases unit tests missed.</li>
+            <li><i class="fas fa-check-circle"></i> Established quality gates and dashboards, reducing recurring regressions by ~30% and aligning engineering with product goals.</li>
+          </ul>
+        </div>
+        <!-- Analogue Shifts -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">Technical Product Manager</span>
+            <span class="exp-company">Analogue Shifts</span>
+            <span class="exp-date">Jul 2022 – Mar 2024</span>
+          </div>
+          <ul class="exp-desc">
+            <li><i class="fas fa-check-circle"></i> Took ownership of platform delivery for backend and cloud initiatives, coordinating priorities across engineering and business.</li>
+            <li><i class="fas fa-check-circle"></i> Led release readiness for cloud systems, introducing workflows that improved execution speed and reduced operational risk.</li>
+            <li><i class="fas fa-check-circle"></i> Acted as bridge between infrastructure, application, and business concerns to keep work moving forward.</li>
+          </ul>
+        </div>
+        <!-- GoldenOx -->
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-title">Software Engineer</span>
+            <span class="exp-company">GoldenOx Partners</span>
+            <span class="exp-date">Jan 2022 – Jun 2022</span>
+          </div>
+          <ul class="exp-desc">
+            <li><i class="fas fa-check-circle"></i> Owned technical delivery of mobile app modernization, migrating core services to serverless architecture.</li>
+            <li><i class="fas fa-check-circle"></i> Coordinated rollout sequencing and deployment to minimize disruption while improving scalability.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study / Key Achievement -->
+    <section id="case-study" class="case-study">
+      <h2 class="section-heading" style="margin-bottom: 24px;">Case Study: Improving AI Model Quality at Turing</h2>
+      <div class="highlight">
+        <p><strong>The challenge:</strong> Models passed technical benchmarks but failed in real-world use. Engineers optimized for metrics, not usability. No systematic way to catch gaps pre-release.</p>
+      </div>
+      <h4>My role & ownership</h4>
+      <p>As AI Product Manager, I owned the evaluation process and bridged engineering output with user needs.</p>
+      <ul>
+        <li><i class="fas fa-arrow-right"></i> Analyzed failure patterns across thousands of evaluations – identified root cause: testing for correctness, not real-world interaction.</li>
+        <li><i class="fas fa-arrow-right"></i> Pushed for a rigorous approach: built automated testing with Playwright to simulate user journeys, capturing edge cases unit tests missed.</li>
+        <li><i class="fas fa-arrow-right"></i> Established quality gates so nothing shipped until it passed both technical AND real-world checks.</li>
+        <li><i class="fas fa-arrow-right"></i> Set up dashboards to track what actually broke for users, prioritizing fixes that mattered.</li>
+      </ul>
+      <h4>Result</h4>
+      <p>Recurring regressions dropped significantly. Engineering and product started speaking the same language. The framework turned subjective concerns into actionable data – exactly the systematic approach I'd bring to a platform like Pear.</p>
+    </section>
+
+    <!-- Skills -->
+    <h2 class="section-heading">Technical & PM toolkit</h2>
+    <div class="skills-grid">
+      <span class="skill-item">Platform Delivery</span>
+      <span class="skill-item">Cross-functional Leadership</span>
+      <span class="skill-item">Node.js (intermediate)</span>
+      <span class="skill-item">Playwright / Automation</span>
+      <span class="skill-item">Cloud (GCP, Azure)</span>
+      <span class="skill-item">Sprint Planning</span>
+      <span class="skill-item">SDK / Module Architecture</span>
+      <span class="skill-item">Stakeholder Management</span>
+      <span class="skill-item">CI/CD principles</span>
+      <span class="skill-item">P2P / decentralized (keen interest)</span>
     </div>
+
+    <!-- Services for individual clients -->
+    <section id="services">
+      <h2 class="section-heading">For individual clients</h2>
+      <p style="margin-bottom: 32px; font-size: 1.2rem; color: #334155;">Fractional technical product leadership to help you ship with confidence.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-road"></i></div>
+          <div class="service-title">Platform delivery</div>
+          <div class="service-desc">Take your project from ambiguous requirements to reliable, shipped product.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-magnifying-glass"></i></div>
+          <div class="service-title">Project rescue</div>
+          <div class="service-desc">Identify bottlenecks, streamline workflows, and get unstuck.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-flask"></i></div>
+          <div class="service-title">QA process setup</div>
+          <div class="service-desc">Implement testing frameworks (like Playwright) and quality gates tailored to your stack.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Hire me -->
+    <section id="contact" class="contact-section">
+      <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 16px;">Let's build something</h2>
+      <p style="font-size: 1.2rem; color: #475569; margin-bottom: 32px;">Open to technical product roles at platform companies like Holepunch, or collaborating with individual founders.</p>
+      <div class="contact-links">
+        <a href="mailto:hussein.alamutu@example.com" class="contact-link"><i class="fas fa-envelope"></i> hussein.alamutu@example.com</a>
+        <a href="https://linkedin.com/in/husseinalamutu" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/husseinalamutu" target="_blank" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+      <p style="color: #64748b;">Based in [Your Country] · Remote worldwide</p>
+    </section>
+
+    <footer>
+      <p>© 2025 Hussein Alamutu. Built for GitHub Pages.</p>
+    </footer>
+  </div>
 </body>
 </html>
